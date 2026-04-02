@@ -124,50 +124,74 @@ checkmate-web-frontend/
 - 폴더 네이밍: **kebab-case**
 - TypeScript strict mode 사용
 
----
+### 이슈 생성 규칙
 
-## 7. 커밋 컨벤션 (Commit Convention)
+1. **GitHub Issues** → **New Issue** → 템플릿 선택
+2. 제목 형식: `✨ feat: 작업 내용`
+3. Assignees: 본인 / Labels 지정
+4. Development → Create a branch → **Branch source를 dev 브랜치로 설정**
 
-**Conventional Commits** 규칙 준수
+### PR 규칙
 
-| 타입 | 설명 |
-| :--- | :--- |
-| `feat` | 새 기능 |
-| `fix` | 버그 수정 |
-| `docs` | 문서 변경 |
-| `style` | 코드 포매팅, 공백/정렬 등 로직 변경 없는 스타일 수정 |
-| `refactor` | 코드 리팩토링 |
-| `perf` | 성능 개선 |
-| `test` | 테스트 관련 |
-| `chore` | 빌드·배포·패키지 설정, 잡무성 정리 |
-| `ci` | CI 설정 |
-| `revert` | 이전 커밋 되돌리기 |
+- **base**: `dev` 브랜치
+- **compare**: `feature/#이슈번호-작업내용`
+- Reviewers / Assignees / Labels 반드시 지정
 
-**메시지 형식**
+### 개발 워크플로우
 
 ```
-feat(news): 뉴스 URL 입력 컴포넌트 추가
-fix(api): Gemini API 응답 파싱 오류 수정
-docs(readme): 환경 변수 설명 추가
+Issue 생성 → 브랜치 생성 → 개발 → PR → 코드리뷰 → 머지 → Issue 닫기
+```
+
+1. **Issue 생성**: 작업할 내용을 이슈로 등록
+2. **브랜치 생성**: `타입/#이슈번호-작업내용` 형식으로 생성
+3. **개발**: 기능 구현
+4. **PR**: `dev` 브랜치를 base로 PR 생성
+5. **코드리뷰**: 팀원 리뷰 후 승인
+6. **머지**: 승인 완료 후 머지
+7. **Issue 닫기**: 머지 후 해당 이슈 close
+
+---
+
+## 7. 커밋 메시지 컨벤션
+
+### Gitmoji + 태그 방식
+
+| Gitmoji | Tag | 설명 |
+|:---:|:---:|---|
+| ✨ | feat | 새로운 기능 추가 |
+| 🐛 | fix | 버그 수정 |
+| 📝 | docs | 문서 추가, 수정, 삭제 |
+| ✅ | test | 테스트 코드 |
+| 💄 | style | 코드 형식 변경 |
+| ♻️ | refactor | 코드 리팩토링 |
+| ⚡️ | perf | 성능 개선 |
+| 💚 | ci | CI 관련 설정 |
+| 🚀 | chore | 기타 변경사항 |
+| 🔥 | remove | 코드 및 파일 제거 |
+
+### 예시
+
+```
+✨feat: 뉴스 URL 입력 컴포넌트 추가
+🐛fix: Gemini API 응답 파싱 오류 수정
+📝docs: README 환경 변수 설명 추가
 ```
 
 ---
 
 ## 8. 브랜치 네이밍 컨벤션
 
-- **feature/** — 새로운 기능  
-  예) `feature/1-news-input`, `feature/2-result-chart`
+```
+타입/#이슈번호-작업내용
+```
 
-- **fix/** — 버그 수정  
-  예) `fix/api-timeout-error`
+예시:
+- `feature/#2-news-input`
+- `fix/#5-api-timeout`
+- `docs/#8-readme-update`
+- `refactor/#10-api-cleanup`
 
-- **hotfix/** — 긴급 수정  
-  예) `hotfix/env-key-missing`
-
-- **refactor/** — 코드 구조 개선  
-  예) `refactor/api-client-cleanup`
-
-- **docs/** — 문서 작업  
-  예) `docs/update-readme`
+이슈에서 자동 생성 시: `feat/#이슈번호`
 
 ---
