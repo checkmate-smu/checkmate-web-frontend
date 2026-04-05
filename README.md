@@ -100,7 +100,7 @@ checkmate-web-frontend/
 
 ### Git Workflow
 
-- `master` (Production): 최종 배포 브랜치
+- `main` (Production): 최종 배포 브랜치
 - `dev` (Staging): 개발 통합 브랜치 — PR은 이 브랜치로
 - `feat/{N}-{name}`: 기능 단위 브랜치 (예: `feat/1-news-input`)
 
