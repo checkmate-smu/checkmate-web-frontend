@@ -3,6 +3,11 @@
  * process.env 접근은 이 파일에서만 수행
  */
 export const config = {
-  supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL ?? '',
-  supabaseAnonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? '',
+  supabase: {
+    url: process.env.NEXT_PUBLIC_SUPABASE_URL ?? '',
+    anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? '',
+  },
+  api: {
+    baseUrl: process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8080/api',
+  },
 } as const;
