@@ -1,0 +1,70 @@
+/* ==========================================================
+ * CheckMate Design Tokens
+ * Figma 소스: 파일 키 2lwY08ziuLaIJFnlj8Q0H2
+ * 규칙: design-system.md 참조
+ * ========================================================== */
+
+:root {
+  /* --------------------------------------------------
+   * Primitive Tokens — 직접 사용 지양, Semantic으로 참조
+   * -------------------------------------------------- */
+  --color-blue-900: #0f2d52;
+  --color-blue-700: #285c9f;
+  --color-blue-500: #379ee6;
+  --color-blue-400: #0096ff;
+  --color-blue-100: #d2e6ff;
+  --color-blue-50: #f0f7ff;
+  --color-purple-600: #681abb;
+  --color-gray-700: #444444;
+
+  /* --------------------------------------------------
+   * Semantic Tokens — 항상 이것을 사용
+   * -------------------------------------------------- */
+
+  /* 브랜드 */
+  --color-brand-primary: var(--color-blue-900);
+  --color-brand-secondary: var(--color-blue-700);
+  --color-brand-subtle: var(--color-blue-100);
+
+  /* 포인트 */
+  --color-accent-blue: var(--color-blue-400);
+  --color-accent-purple: var(--color-purple-600);
+
+  /* 배경 */
+  --color-bg-base: #ffffff;
+  --color-bg-surface: var(--color-blue-50);
+
+  /* 텍스트 */
+  --color-text-primary: #000000;
+  --color-text-secondary: var(--color-gray-700);
+  --color-text-heading: var(--color-blue-900);
+  --color-text-accent: var(--color-blue-700);
+
+  /* 상태 */
+  --color-info: var(--color-blue-500);
+
+  /* --------------------------------------------------
+   * Typography Tokens
+   * -------------------------------------------------- */
+  --font-family-display: 'Recipekorea', sans-serif;
+  --font-family-base: 'Pretendard', sans-serif;
+
+  --font-display-size: 83px;
+  --font-heading-lg-size: 32px;
+  --font-body-base-size: 16px;
+  --font-body-sm-size: 14px;
+  --font-label-size: 12px;
+
+  /* --------------------------------------------------
+   * Spacing Tokens
+   * 기본: M3 8dp 그리드 / 6·10·20은 CheckMate 내부 확장값
+   * -------------------------------------------------- */
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-48: 48px;
+}

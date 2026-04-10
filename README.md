@@ -2,8 +2,8 @@
 
 ## 1. 프로젝트 개요 (Project Overview)
 
-**CheckMate Web**은 AI 기반 뉴스 신뢰도 분석 웹앱의 **React 프론트엔드**입니다.  
-사용자가 뉴스 기사를 입력하면 **Gemini API**를 통해 신뢰도를 분석하고 결과를 시각화합니다.  
+**CheckMate Web**은 AI 기반 뉴스 신뢰도 분석 웹앱의 **프론트엔드**입니다.  
+사용자가 뉴스 URL을 입력하면 Spring Boot 백엔드가 본문 추출 → Claim 추출 → 3-Tier Cascade 검증을 수행하고, 프론트엔드가 결과를 시각화합니다.  
 8주 팀 프로젝트로, 실제 협업 경험과 배포 파이프라인 운영을 핵심 목표로 합니다.
 
 ---
@@ -12,8 +12,11 @@
 
 | 구분 | 기술 |
 | :--- | :--- |
-| **Front-end** | `React`, `TypeScript` |
-| **External API** | `Google Gemini API` |
+| **Framework** | `Next.js 15` (App Router), `TypeScript` |
+| **Architecture** | `Feature-Sliced Design` (커스텀 번호 체계) |
+| **Auth / DB** | `Supabase` (PostgreSQL + Auth) |
+| **Backend** | `Spring Boot 3.x` (별도 레포: checkmate-web-backend) |
+| **External API** | `Google Gemini API`, `Google Fact Check API`, `DeepL API` |
 | **DevOps** | `Vercel` |
 
 ---
@@ -72,7 +75,9 @@ npm run format
 
 | 변수명 | 설명 |
 | :--- | :--- |
-| `GEMINI_API_KEY` | Google Gemini API 키 |
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase 프로젝트 URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase Anonymous Key |
+| `NEXT_PUBLIC_API_URL` | Spring Boot 백엔드 API URL (기본: `http://localhost:8080/api`) |
 
 `.env.example` 파일을 참고하세요.
 
@@ -80,18 +85,28 @@ npm run format
 
 ## 5. 프로젝트 구조 (Project Structure)
 
-> 현재 프로젝트 초기 세팅 단계입니다. 구조는 추후 업데이트 예정입니다.
+> 상세 컨벤션은 [CONVENTIONS.md](./CONVENTIONS.md) 참조.
+
+**FSD 커스텀 번호 체계** — 높은 번호에서만 import 가능:
+
+```
+app → 03-pages → 04-widgets → 05-features → 06-entities → 07-shared
+←←←←←←←←←←← import 허용 방향 ←←←←←←←←←←←
+```
 
 ```
 checkmate-web-frontend/
-├── src/                    # 소스 코드 (추후 업데이트)
-├── public/                 # 정적 파일
-├── .env.example            # 환경 변수 템플릿 (Git 추적)
-├── .env.local              # 로컬 환경 변수 (Git 추적 제외)
-├── .gitignore
-├── package.json
-├── tsconfig.json
-└── README.md
+├── src/
+│   ├── app/              # Next.js App Router (라우트 + 레이아웃)
+│   ├── 03-pages/         # 페이지 단위 컴포넌트
+│   ├── 04-widgets/       # 레이아웃 위젯 (Navbar, Footer)
+│   ├── 05-features/      # 기능 단위 모듈 (auth, analysis)
+│   ├── 06-entities/      # 도메인 엔티티 (타입, 기본 CRUD)
+│   └── 07-shared/        # 기반 레이어 (api, config, errors, types)
+├── public/               # 정적 파일
+├── CONVENTIONS.md         # 코딩 컨벤션 가이드
+├── .env.example           # 환경 변수 템플릿
+└── package.json
 ```
 
 ---

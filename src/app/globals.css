@@ -1,8 +1,9 @@
 @import 'tailwindcss';
+@import '../07-shared/styles/tokens.css';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-bg-base);
+  --foreground: var(--color-text-primary);
 }
 
 @theme inline {
