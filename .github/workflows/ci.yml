@@ -24,11 +24,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Lint
+      # ── 결정론적 검증 (Fail-fast) ──
+
+      - name: Check Format (Prettier)
+        run: npm run format:check
+
+      - name: TypeScript 타입 검증
+        run: npm run typecheck
+
+      - name: ESLint (린팅 + FSD 아키텍처 검증)
         run: npm run lint
 
-      - name: Check Format
-        run: npm run format:check
+      - name: Stylelint (디자인 토큰 검증)
+        run: npm run stylelint
+
+      # ── 빌드 ──
 
       - name: Build Project
         run: npm run build
