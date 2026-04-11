@@ -1,0 +1,27 @@
+language: ko-KR
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  auto_review:
+    enabled: true
+    drafts: false
+  path_instructions:
+    - path: "src/07-shared/**"
+      instructions: |
+        07-shared는 최하위 레이어. 다른 레이어(05-features, 06-entities 등)를 import하면 안 됨.
+        process.env 직접 접근 금지 — config 통해 접근.
+    - path: "src/05-features/**"
+      instructions: |
+        FSD 규칙: 05-features는 06-entities, 07-shared만 import 가능.
+        04-widgets, 03-pages import 금지.
+    - path: "src/**/*.css"
+      instructions: |
+        하드코딩 색상(#xxx, rgb) 금지 — var(--color-*) 사용.
+        허용 spacing: 6, 8, 10, 16, 20, 24, 32, 48 px만.
+    - path: "src/**/*.tsx"
+      instructions: |
+        any 타입 사용 금지. Props 타입 명시 필수.
+        상태/이벤트 사용 시 'use client' 선언 확인.
+chat:
+  auto_reply: true
