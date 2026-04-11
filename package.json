@@ -9,7 +9,10 @@
     "lint": "eslint",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,md}\""
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,md}\"",
+    "typecheck": "tsc --noEmit",
+    "stylelint": "stylelint \"src/**/*.css\"",
+    "stylelint:fix": "stylelint \"src/**/*.css\" --fix"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.0",
@@ -25,7 +28,12 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
+    "eslint-plugin-fsd-lint": "^1.0.11",
+    "eslint-plugin-import-x": "^4.16.2",
     "prettier": "^3.8.1",
+    "stylelint": "^17.6.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-declaration-strict-value": "^1.11.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

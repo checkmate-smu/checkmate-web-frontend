@@ -1,45 +1,43 @@
 # CheckMate Frontend — PR 리뷰 규칙
 
 > Claude AI 리뷰어 전용. 한국어로 리뷰한다.
+> 포맷/FSD 의존성/타입 에러/디자인 토큰은 CI(Prettier + ESLint + tsc + Stylelint)가 자동 차단하므로 여기서 다루지 않는다.
+> Claude는 CI가 잡지 못하는 **비즈니스 로직, 성능, UX**에 집중한다.
 
 ## Always check
 
-### FSD Import 방향 위반
-- 낮은 번호에서 높은 번호로 import 여부 (예: `07-shared`에서 `05-features` import)
-- 슬라이스 외부에서 내부 경로 직접 접근 여부 (barrel export 우회)
+### 비즈니스 로직 결함
+- 상태 관리 로직의 경쟁 조건 (race condition)
+- useEffect 의존성 배열 누락으로 인한 무한 루프 가능성
+- 조건부 렌더링의 논리적 오류
 
-### 디자인 토큰
-- 하드코딩된 색상값 (`#xxx`, `rgb()`, `hsl()`)
-- 토큰에 없는 spacing 값 (허용: 6, 8, 10, 16, 20, 24, 32, 48 px)
-- `Recipekorea` 폰트를 본문에 사용한 경우
+### 성능
+- 불필요한 리렌더링 유발 패턴 (객체/배열 리터럴을 prop으로 전달)
+- 대규모 리스트에서 key 누락 또는 인덱스 key 사용
+- Server Component로 충분한데 Client Component로 작성한 경우
 
-### TypeScript
-- `any` 타입 사용 여부 → `unknown` 또는 명시적 타입 필수
-- Props 타입 미정의 여부
+### 보안
+- dangerouslySetInnerHTML 사용 여부
+- 사용자 입력이 검증 없이 URL이나 쿼리에 전달되는지
+- API 키가 클라이언트 코드에 노출되었는지
 
-### 환경변수
-- `process.env` 직접 접근 여부 → `config` (`@/07-shared/config/config`) 사용 필수
-
-### 에러 처리
-- `new Error()` 직접 사용 여부 → `AppError` (`@/07-shared/errors`) 사용 필수
-
-### Next.js App Router
-- 상태/이벤트 사용 컴포넌트에 `'use client'` 누락 여부
-- Server Component에서 `getSupabaseBrowserClient` 사용 여부
-
-### 파일 네이밍
-- 컴포넌트 파일이 kebab-case가 아닌 경우
-- 폴더명이 PascalCase인 경우
+### UX
+- 로딩/에러 상태 처리 누락
+- 접근성(a11y) — 시맨틱 태그, alt 속성, 키보드 네비게이션
 
 ## Style
 
-- barrel export(`index.ts`)를 통한 import 권장
-- `apiFetch` 래퍼를 통한 API 호출 권장
-- Path alias (`@/*`) 사용 권장 (상대 경로 `../../` 비권장)
+- Server Component 우선 설계 (상태 없으면 'use client' 불필요)
+- apiFetch 래퍼 사용 권장
+- barrel export(index.ts)를 통한 슬라이스 간 import 권장
 
-## Skip
+## Skip — CI가 자동으로 검증하는 항목
 
-- ESLint/Prettier 포맷 관련 이슈 (CI에서 자동 검사)
-- `next-env.d.ts` 변경 (Next.js 자동 생성)
-- `package-lock.json` 변경
-- 테스트 코드의 사소한 네이밍
+- 코드 포맷 (Prettier가 검증)
+- FSD 레이어 의존성 위반 (eslint-plugin-fsd-lint가 차단)
+- 슬라이스 간 상대 경로 사용 (fsd/no-relative-imports가 차단)
+- Public API 우회 접근 (fsd/no-public-api-sidestep이 차단)
+- TypeScript 타입 에러 (tsc --noEmit이 차단)
+- 하드코딩 색상/spacing (Stylelint가 차단)
+- any 타입 사용 (strict 모드가 차단)
+- import 순서 (ESLint가 검증)
