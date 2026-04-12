@@ -25,7 +25,7 @@
 
 ### 규칙이 바뀔 때의 올바른 순서
 
-```
+```text
 1. .claude/rules/*.md 수정 (즉시 반영)
 2. .claude/agents/code-reviewer.md 수정 (리뷰 기준 동기화)
 3. .coderabbit.yaml 수정 (PR 리뷰 동기화)

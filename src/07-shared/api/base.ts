@@ -23,17 +23,18 @@ async function request<T, B = unknown>(
 ): Promise<T> {
   const { body, headers, ...rest } = options;
   const url = `${config.api.baseUrl}${path}`;
+  const hasBody = body !== undefined;
 
   let res: Response;
   try {
     res = await fetch(url, {
       method,
       headers: {
-        'Content-Type': 'application/json',
         Accept: 'application/json',
+        ...(hasBody ? { 'Content-Type': 'application/json' } : {}),
         ...headers,
       },
-      body: body !== undefined ? JSON.stringify(body) : undefined,
+      body: hasBody ? JSON.stringify(body) : undefined,
       ...rest,
     });
   } catch {
