@@ -204,7 +204,7 @@ export function AnalysisDetailPage() {
                 </li>
               </ul>
             </div>
-            <div className="bg-primary group relative h-64 cursor-pointer overflow-hidden rounded-xl">
+            <div className="bg-primary group relative h-64 overflow-hidden rounded-xl">
               <Image
                 alt="위성 이미지 지도"
                 className="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
