@@ -4,3 +4,4 @@
 export { DashboardPage } from './dashboard';
 export { HistoryPage } from './history';
 export { AnalysisDetailPage } from './analysis';
+export { AboutPage } from './about';
