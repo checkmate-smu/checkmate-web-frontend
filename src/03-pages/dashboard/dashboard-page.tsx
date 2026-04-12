@@ -61,9 +61,10 @@ export function DashboardPage() {
                   viewBox="0 0 100 50"
                 >
                   <path
+                    className="text-surface-container-highest"
                     d="M 10 50 A 40 40 0 0 1 90 50"
                     fill="none"
-                    stroke="#e8eff7"
+                    stroke="currentColor"
                     strokeLinecap="round"
                     strokeWidth="12"
                   ></path>
