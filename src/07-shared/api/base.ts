@@ -25,19 +25,26 @@ async function request<T, B = unknown>(
   const url = `${config.api.baseUrl}${path}`;
   const hasBody = body !== undefined;
 
+  const requestHeaders = new Headers(headers);
+  if (!requestHeaders.has('Accept')) {
+    requestHeaders.set('Accept', 'application/json');
+  }
+  if (hasBody && !requestHeaders.has('Content-Type')) {
+    requestHeaders.set('Content-Type', 'application/json');
+  }
+
   let res: Response;
   try {
     res = await fetch(url, {
       method,
-      headers: {
-        Accept: 'application/json',
-        ...(hasBody ? { 'Content-Type': 'application/json' } : {}),
-        ...headers,
-      },
+      headers: requestHeaders,
       body: hasBody ? JSON.stringify(body) : undefined,
       ...rest,
     });
-  } catch {
+  } catch (error) {
+    if (error instanceof DOMException && error.name === 'AbortError') {
+      throw error;
+    }
     throw new AppError('네트워크 연결에 실패했습니다', 0);
   }
 
