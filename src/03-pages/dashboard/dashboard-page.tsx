@@ -33,7 +33,10 @@ export function DashboardPage() {
                   type="text"
                 />
               </div>
-              <button className="bg-primary text-on-primary hover:bg-primary-container flex items-center justify-center gap-2 rounded-xl px-8 py-3 font-bold transition-all active:scale-95" type="button">
+              <button
+                className="bg-primary text-on-primary hover:bg-primary-container flex items-center justify-center gap-2 rounded-xl px-8 py-3 font-bold transition-all active:scale-95"
+                type="button"
+              >
                 <span className="material-symbols-outlined text-[20px]">
                   analytics
                 </span>
@@ -79,7 +82,10 @@ export function DashboardPage() {
                       y1="0%"
                       y2="0%"
                     >
-                      <stop offset="0%" style={{ stopColor: 'var(--color-blue-900)' }}></stop>
+                      <stop
+                        offset="0%"
+                        style={{ stopColor: 'var(--color-blue-900)' }}
+                      ></stop>
                       <stop
                         offset="100%"
                         style={{ stopColor: 'var(--color-blue-700)' }}
@@ -122,7 +128,10 @@ export function DashboardPage() {
               체크메이트가 실시간으로 검증 중인 최신 이슈입니다.
             </p>
           </div>
-          <button className="text-secondary font-pretendard flex items-center gap-1 font-bold transition-all hover:gap-2" type="button">
+          <button
+            className="text-secondary font-pretendard flex items-center gap-1 font-bold transition-all hover:gap-2"
+            type="button"
+          >
             전체 보기{' '}
             <span className="material-symbols-outlined">chevron_right</span>
           </button>
@@ -144,7 +153,9 @@ export function DashboardPage() {
                   VERIFIED
                 </span>
               </div>
-              <span className="text-outline font-pretendard text-xs font-medium">방금 전</span>
+              <span className="text-outline font-pretendard text-xs font-medium">
+                방금 전
+              </span>
             </div>
             <div>
               <h3 className="text-primary group-hover:text-secondary font-pretendard text-2xl font-bold leading-snug transition-colors">
@@ -204,7 +215,9 @@ export function DashboardPage() {
                 <span className="material-symbols-outlined text-sm">
                   warning
                 </span>
-                <span className="font-pretendard text-xs font-bold">허위 정보 주의</span>
+                <span className="font-pretendard text-xs font-bold">
+                  허위 정보 주의
+                </span>
               </div>
               <p className="text-on-error-container/70 font-pretendard mt-2 text-[10px]">
                 공식 브리핑에서 부인된 사안입니다.
@@ -216,12 +229,17 @@ export function DashboardPage() {
             <span className="material-symbols-outlined text-on-primary-container mb-4 text-4xl">
               psychology
             </span>
-            <h4 className="font-pretendard mb-3 text-xl font-bold">AI 인사이트</h4>
+            <h4 className="font-pretendard mb-3 text-xl font-bold">
+              AI 인사이트
+            </h4>
             <p className="text-on-primary-container font-pretendard mb-6 text-sm leading-relaxed">
               최근 가짜 뉴스의 68%가 자극적인 썸네일을 사용하고 있습니다. 주의가
               필요합니다.
             </p>
-            <button className="bg-primary-container hover:bg-on-primary-fixed-variant font-pretendard mt-auto w-full rounded-xl py-3 text-xs font-bold transition-colors" type="button">
+            <button
+              className="bg-primary-container hover:bg-on-primary-fixed-variant font-pretendard mt-auto w-full rounded-xl py-3 text-xs font-bold transition-colors"
+              type="button"
+            >
               분석 패턴 확인
             </button>
           </div>
@@ -237,7 +255,10 @@ export function DashboardPage() {
                   여부를 파악하세요.
                 </p>
               </div>
-              <button className="bg-secondary text-on-secondary shadow-secondary/10 font-pretendard whitespace-nowrap rounded-xl px-8 py-4 font-bold shadow-xl transition-all hover:opacity-90 active:scale-95" type="button">
+              <button
+                className="bg-secondary text-on-secondary shadow-secondary/10 font-pretendard whitespace-nowrap rounded-xl px-8 py-4 font-bold shadow-xl transition-all hover:opacity-90 active:scale-95"
+                type="button"
+              >
                 Chrome에 추가하기
               </button>
             </div>
