@@ -18,7 +18,11 @@ function Navbar() {
         로그인
       </button>
 
-      <button className="md:hidden flex flex-col gap-1" type="button" aria-label="메뉴 열기">
+      <button
+        className="md:hidden flex flex-col gap-1"
+        type="button"
+        aria-label="메뉴 열기"
+      >
         <span className="block w-6 h-0.5 bg-[var(--color-text-primary)]"></span>
         <span className="block w-6 h-0.5 bg-[var(--color-text-primary)]"></span>
         <span className="block w-6 h-0.5 bg-[var(--color-text-primary)]"></span>
