@@ -79,6 +79,26 @@ body {
     box-shadow: 0 0 40px rgb(0 150 255 / 0.3), 0 0 100px rgb(0 150 255 / 0.15);
   }
 
+  /* 랜딩 타일 — Tailwind 팔레트 대신 디자인 토큰 기반 */
+  .landing-accent-blue {
+    background-color: var(--color-blue-50);
+    color: var(--color-blue-700);
+  }
+
+  .landing-accent-purple {
+    background-color: color-mix(
+      in srgb,
+      var(--color-purple-600) 12%,
+      var(--color-bg-base)
+    );
+    color: var(--color-purple-600);
+  }
+
+  .landing-accent-success {
+    background-color: var(--color-success-subtle);
+    color: var(--color-success-strong);
+  }
+
   .gradient-border {
     position: relative;
     background-clip: padding-box;

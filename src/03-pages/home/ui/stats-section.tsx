@@ -17,7 +17,7 @@ const CAPABILITIES = [
     label: '다수 기사 분석',
     description:
       '국내외 다양한 출처의 뉴스 기사를 자동으로 수집하고 검증합니다.',
-    accent: 'bg-blue-50 text-blue-600',
+    accent: 'landing-accent-blue',
     glow: 'rgba(0,150,255,0.14)',
   },
   {
@@ -25,7 +25,7 @@ const CAPABILITIES = [
     label: '교차 검증 기반',
     description:
       '복수의 공신력 있는 매체를 대조하여 사실관계 일치 여부를 판단합니다.',
-    accent: 'bg-purple-50 text-purple-600',
+    accent: 'landing-accent-purple',
     glow: 'rgba(104,26,187,0.14)',
   },
   {
@@ -33,7 +33,7 @@ const CAPABILITIES = [
     label: '빠른 AI 분석',
     description:
       'URL 입력 후 수 초 내에 자연어 처리 기반 분석 결과를 제공합니다.',
-    accent: 'bg-green-50 text-green-600',
+    accent: 'landing-accent-success',
     glow: 'rgba(34,197,94,0.14)',
   },
   {
@@ -41,7 +41,7 @@ const CAPABILITIES = [
     label: '다양한 검증 소스',
     description:
       '국내외 공신력 있는 미디어 및 공공 데이터를 검증 소스로 활용합니다.',
-    accent: 'bg-blue-50 text-blue-600',
+    accent: 'landing-accent-blue',
     glow: 'rgba(0,150,255,0.14)',
   },
 ] as const;

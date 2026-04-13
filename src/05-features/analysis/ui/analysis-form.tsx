@@ -29,9 +29,9 @@ export function AnalysisForm() {
     }
 
     setError(false);
-    // 분석 상세 페이지로 이동 (id는 임시로 url을 인코딩하거나 고정값 사용)
-    // 실제로는 API 호출 후 생성된 ID로 이동함
-    router.push(`/analysis/pending?url=${encodeURIComponent(url)}`);
+    // 임시: 동적 [id] 라우트로 이동(실서비스에서는 API 응답의 세션 ID 사용)
+    const analysisId = encodeURIComponent(url);
+    router.push(`/analysis/${analysisId}`);
   };
 
   return (
@@ -55,6 +55,8 @@ export function AnalysisForm() {
             placeholder="분석할 기사 URL을 입력하세요"
             type="text"
             value={url}
+            aria-invalid={error}
+            aria-describedby={error ? 'news-url-error' : undefined}
             onChange={(e) => {
               setUrl(e.target.value);
               if (error) setError(false);
@@ -74,7 +76,11 @@ export function AnalysisForm() {
 
       {/* Error State */}
       {error && (
-        <div className="text-error flex items-center gap-1.5 px-1 text-sm font-medium font-pretendard">
+        <div
+          id="news-url-error"
+          role="alert"
+          className="text-error flex items-center gap-1.5 px-1 text-sm font-medium font-pretendard"
+        >
           <AlertTriangle className={ICON_SIZE.sm} aria-hidden="true" />
           올바른 URL 형식이 아닙니다. 다시 확인해주세요.
         </div>

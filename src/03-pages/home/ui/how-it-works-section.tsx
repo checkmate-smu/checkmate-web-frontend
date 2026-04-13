@@ -16,7 +16,7 @@ const STEPS = [
     step: '01',
     title: 'URL 입력',
     description: '검증하고 싶은 뉴스 기사의 URL을 붙여넣기만 하면 됩니다.',
-    accent: 'bg-blue-50 text-blue-600',
+    accent: 'landing-accent-blue',
     glow: 'rgba(0,150,255,0.22)',
     ring: 'rgba(0,150,255,0.45)',
   },
@@ -26,7 +26,7 @@ const STEPS = [
     title: 'AI 교차 분석',
     description:
       '다수의 공신력 있는 매체와 교차 대조하여 사실관계를 다각도로 검증합니다.',
-    accent: 'bg-purple-50 text-purple-600',
+    accent: 'landing-accent-purple',
     glow: 'rgba(104,26,187,0.2)',
     ring: 'rgba(104,26,187,0.4)',
   },
@@ -36,7 +36,7 @@ const STEPS = [
     title: '결과 확인',
     description:
       '신뢰도 점수와 함께 근거 출처, 검증 로직을 투명하게 제공합니다.',
-    accent: 'bg-green-50 text-green-600',
+    accent: 'landing-accent-success',
     glow: 'rgba(34,197,94,0.2)',
     ring: 'rgba(34,197,94,0.4)',
   },
@@ -121,7 +121,7 @@ export function HowItWorksSection() {
                 }}
               />
               <div
-                className={`relative flex h-16 w-16 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-115 group-hover:shadow-xl ${step.accent}`}
+                className={`relative flex h-16 w-16 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-[1.15] group-hover:shadow-xl ${step.accent}`}
                 style={{
                   boxShadow: `0 6px 32px ${step.glow}`,
                 }}
