@@ -1,6 +1,12 @@
 'use client';
 
-export function DashboardPage() {
+import { AnalysisForm } from '@/05-features/analysis';
+
+/**
+ * 03-pages — Home Page
+ * 랜딩 페이지의 메인 화면을 조립합니다.
+ */
+export function HomePage() {
   return (
     <main className="mx-auto max-w-7xl px-8 py-16">
       {/* Hero Section */}
@@ -20,36 +26,11 @@ export function DashboardPage() {
             복잡한 정보의 시대, 데이터와 인공지능이 뉴스 배후의 진실을
             분석합니다. 투명한 검증 프로세스로 신뢰할 수 있는 정보를 선별하세요.
           </p>
-          {/* URL Input Area */}
-          <div className="relative max-w-2xl group">
-            <div className="bg-surface-container-highest focus-within:ring-secondary flex flex-col gap-4 rounded-xl p-2 transition-all duration-300 focus-within:ring-2 focus-within:ring-offset-4 md:flex-row">
-              <div className="flex flex-1 items-center gap-3 px-4">
-                <span className="material-symbols-outlined text-outline">
-                  link
-                </span>
-                <input
-                  className="text-on-surface placeholder:text-outline-variant font-pretendard w-full border-none bg-transparent py-3 font-medium focus:ring-0"
-                  placeholder="분석할 기사 URL을 입력하세요"
-                  type="text"
-                />
-              </div>
-              <button
-                className="bg-primary text-on-primary hover:bg-primary-container flex items-center justify-center gap-2 rounded-xl px-8 py-3 font-bold transition-all active:scale-95"
-                type="button"
-              >
-                <span className="material-symbols-outlined text-[20px]">
-                  analytics
-                </span>
-                분석하기
-              </button>
-            </div>
-            {/* Error State Hidden by Default */}
-            <div className="text-error absolute -bottom-8 left-4 hidden items-center gap-2 text-sm font-medium font-pretendard">
-              <span className="material-symbols-outlined text-sm">error</span>
-              올바른 URL 형식이 아닙니다. 다시 확인해주세요.
-            </div>
-          </div>
+
+          {/* Analysis Feature Layer */}
+          <AnalysisForm />
         </div>
+
         <div className="w-full flex-1 max-w-md">
           <div className="relative">
             <div className="bg-secondary-container/20 absolute -inset-4 rounded-full blur-3xl"></div>
@@ -71,13 +52,13 @@ export function DashboardPage() {
                   <path
                     d="M 10 50 A 40 40 0 0 1 70 15"
                     fill="none"
-                    stroke="url(#gradient)"
+                    stroke="url(#gradient-home)"
                     strokeLinecap="round"
                     strokeWidth="12"
                   ></path>
                   <defs>
                     <linearGradient
-                      id="gradient"
+                      id="gradient-home"
                       x1="0%"
                       x2="100%"
                       y1="0%"
@@ -118,6 +99,7 @@ export function DashboardPage() {
           </div>
         </div>
       </section>
+
       {/* Bento Grid: Recent Analysis */}
       <section className="space-y-10">
         <div className="flex items-end justify-between">
@@ -137,7 +119,9 @@ export function DashboardPage() {
             <span className="material-symbols-outlined">chevron_right</span>
           </button>
         </div>
+
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
+          {/* Card components would normally be Widgets/Entities, keep here for now as part of Page assembly */}
           {/* Tier 1: Verified (Large Card) */}
           <div className="bg-surface-container-lowest border-outline-variant/10 ambient-shadow group relative flex cursor-pointer flex-col justify-between rounded-full border p-8 md:col-span-2 lg:col-span-2">
             <div className="mb-10 flex items-start justify-between">
@@ -179,6 +163,7 @@ export function DashboardPage() {
               </div>
             </div>
           </div>
+
           {/* Tier 2: Mixed */}
           <div className="bg-surface-container-low flex flex-col rounded-full p-8">
             <div className="mb-8">
@@ -201,7 +186,8 @@ export function DashboardPage() {
               </div>
             </div>
           </div>
-          {/* Tier 3: False (Direct) */}
+
+          {/* Tier 3: False */}
           <div className="bg-error-container/30 flex flex-col rounded-full p-8">
             <div className="mb-8">
               <span className="bg-error text-on-error font-pretendard mb-4 inline-block rounded-lg px-3 py-1 text-[10px] font-bold">
@@ -225,7 +211,8 @@ export function DashboardPage() {
               </p>
             </div>
           </div>
-          {/* Summary Feature */}
+
+          {/* AI Insight */}
           <div className="bg-primary text-on-primary flex flex-col rounded-full p-8 md:col-span-1 lg:col-span-1">
             <span className="material-symbols-outlined text-on-primary-container mb-4 text-4xl">
               psychology
@@ -244,7 +231,8 @@ export function DashboardPage() {
               분석 패턴 확인
             </button>
           </div>
-          {/* Extension Feature */}
+
+          {/* Extension */}
           <div className="bg-surface-container-highest/50 rounded-full p-1 md:col-span-2 lg:col-span-3">
             <div className="bg-surface-container-lowest border-outline-variant/10 flex h-full flex-col items-center gap-8 rounded-full border p-8 md:flex-row">
               <div className="flex-1">
