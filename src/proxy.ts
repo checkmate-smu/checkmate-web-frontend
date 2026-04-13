@@ -2,9 +2,9 @@ import { type NextRequest } from 'next/server';
 import { updateSession } from '@/07-shared/api/supabase/middleware';
 
 /**
- * Next.js 미들웨어 — Supabase 세션 리프레시
+ * Next.js 16 Proxy -- Supabase 세션 리프레시
  */
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   return await updateSession(request);
 }
 

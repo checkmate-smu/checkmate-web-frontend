@@ -52,3 +52,7 @@ test-results/
 
 # AI generated
 AGENTS.md
+
+# Accidental empty files from mistaken shell redirects at repo root
+/next
+/checkmate-web-frontend@*
